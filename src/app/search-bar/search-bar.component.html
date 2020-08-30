@@ -1,1 +1,7 @@
-<p>search-bar works!</p>
+<mat-form-field class="search-bar-container">
+    <mat-label class="search-bar-container__header">Movie Title</mat-label>
+    <input matInput class="search-bar-container__input" type="text" [(ngModel)]="value">
+    <button mat-icon-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="eraseEntry()">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
