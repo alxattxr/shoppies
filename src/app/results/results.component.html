@@ -1,1 +1,9 @@
-<p>results works!</p>
+    <span class="sub-header">Results for "{{searchedString}}"</span>
+    <div class="search-results" *ngIf="list; noResults">
+        <ng-container *ngFor="let l of list">
+            <movie-card></movie-card>
+        </ng-container>
+    </div>
+    <ng-template #noResults>
+        <span>:/ nothing was found</span>
+    </ng-template>
