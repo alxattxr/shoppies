@@ -3,6 +3,7 @@
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
+@import './app/color-variables';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -36,3 +37,8 @@ $shoppies-app-theme: mat-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.sub-header{
+  font-weight: 600;
+  display: block;
+  color: $primary;
+}

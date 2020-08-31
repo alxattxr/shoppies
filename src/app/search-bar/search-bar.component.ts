@@ -12,7 +12,11 @@ export class SearchBarComponent {
   value="test";
 
   public eraseEntry(): void {
-    this.value= '';  
+    this.value = '';  
+  }
+
+  public onSubmit(): void {
+    console.log("current: ", this.value);
   }
 
 }
