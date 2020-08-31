@@ -22,4 +22,10 @@ describe('SearchBarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('shoudl erase input content on icon click', () => {
+    component.value = "test";
+    component.eraseEntry();
+    component.value == '';
+  })
 });

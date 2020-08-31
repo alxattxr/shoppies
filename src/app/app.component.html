@@ -1,10 +1,13 @@
-<h1>
-  Hello
-</h1>
-<search-bar></search-bar>
-<results></results>
-<nominations-container></nominations-container>
+<div class="app-container">
+  <h1>
+    The Shoppies
+  </h1>
+  <search-bar></search-bar>
+  <div class="results-output">
+    <results [searchedString]="searchedString"></results>
+    <nominations-container></nominations-container>
+  </div>
+  
+  <router-outlet></router-outlet>
 
-
-
-<router-outlet></router-outlet>
+</div>

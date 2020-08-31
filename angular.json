@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "styleext": "scss"
         }
       },
       "root": "",
@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/custom-theme.scss"
             ],
             "scripts": []
           },
@@ -92,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/custom-theme.scss"
             ],
             "scripts": []
           }
@@ -123,6 +123,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "shoppies-app"
+    }
+  },
+  "defaultProject": "shoppies-app",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  }
 }

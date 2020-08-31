@@ -1,0 +1,10 @@
+@import './color-variables';
+.app-container {
+    padding: 40px 80px;
+    background-color: $background;
+}
+
+.results-output{
+    display: flex;
+    flex-direction: row;
+}
