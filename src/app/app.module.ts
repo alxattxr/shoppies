@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { NominationsContainerComponent } from './nominations-container/nominations-container.component';
-import { ResultsComponent } from './results/results.component';
+import { ResultsComponent } from './results/results.component'; 
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { ResultsComponent } from './results/results.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
