@@ -1,6 +1,6 @@
 <mat-form-field class="search-bar-container" (ngSubmit)="onSubmit()">
     <mat-label class="search-bar-container__header">Movie Title</mat-label>
-    <mat-icon matPrefix mat-icon-button aria-label="Search" >search</mat-icon>
+    <mat-icon matPrefix mat-icon-button aria-label="Search" (click)="onSubmit()">search</mat-icon>
     <input matInput class="search-bar-container__input" type="text" [(ngModel)]="value">
     <button mat-icon-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="eraseEntry()">
         <mat-icon>close</mat-icon>

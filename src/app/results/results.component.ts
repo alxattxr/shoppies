@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core';
+import { SearchMovieStoreService } from '../services/search-movie-store.service';
 
 @Component({
   selector: 'results',
@@ -7,9 +8,10 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResultsComponent {
-  @Input() searchedString: string;
+  public searchMovieStoreService: SearchMovieStoreService;
 
-  list = [1,2,2,2,2,2,2,2,2]
-  constructor() { }
+  constructor(searchMovieStoreService: SearchMovieStoreService) { 
+    this.searchMovieStoreService = searchMovieStoreService;
+  }
 
 }
