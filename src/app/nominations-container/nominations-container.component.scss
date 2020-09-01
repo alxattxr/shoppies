@@ -1,0 +1,12 @@
+
+@import './../color-variables';
+
+:host {
+    height: 100px;
+    width: 50%;
+    border: solid 1px $primary;
+    border-radius: 4px;
+    background-color: $secondary;
+    margin-left: 8px;
+    padding: 16px;
+}
