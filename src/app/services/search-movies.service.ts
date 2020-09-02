@@ -2,6 +2,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ResultType } from '../enums/ResultType.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -13,10 +14,10 @@ export class SearchService {
 
   //TODO: Chnage type any for return model
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public getMoviesInformations(searchTerm: string): Observable<any> {
+  public getMoviesInformations(searchTerm: string, type: ResultType): Observable<any> {
     //TODO: refactor to make it more reusable
     return this.http
-      .get(`${this.url}/?s=${searchTerm}&apikey=${this.apiKey}`)
+      .get(`${this.url}/?s=${searchTerm}&apikey=${this.apiKey}&type=${type}`)
       .pipe(
         catchError((error: HttpErrorResponse) =>
           this.formatResponseErrors(error)
