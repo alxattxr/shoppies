@@ -1,11 +1,11 @@
-<span class="sub-header">Results for "{{ searchMovieStoreService.searchedString$ | async }}"</span>
-<div class="search-results" *ngIf="searchMovieStoreService.results$ | async; noResults">
-  <ng-container *ngFor="let result of searchMovieStoreService.getSearchResults()">
-    <movie-card [movieInformation]="result" (click)="addToNomination(result)"></movie-card>
+<span class="sub-header">Results for "{{ searchedString }}"</span>
+<div class="search-results" *ngIf="searchResults.Response && searchedString; else noResults">
+  <ng-container *ngFor="let result of searchResults.Search">
+    <movie-card [nominations]="searchMovieStoreService.nominations$ | async" [movieInformation]="result"
+      (onClick)="addToNomination(result)">
+    </movie-card>
   </ng-container>
 </div>
 <ng-template #noResults>
-  <span>:/ nothing was found for "{{
-      searchMovieStoreService.searchedString$ | async
-    }}"</span>
+  <span>:/ nothing was found for {{ searchedString }}</span>
 </ng-template>

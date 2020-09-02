@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { SearchMovieStoreService } from '../services/search-movie-store.service';
 import { SearchService } from '../services/search-movies.service';
 import { SearchResults } from '../models/SearchResults.model';
@@ -7,6 +7,7 @@ import { SearchResults } from '../models/SearchResults.model';
   selector: 'search-bar',
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchBarComponent {
   constructor(

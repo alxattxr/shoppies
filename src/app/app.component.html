@@ -2,9 +2,11 @@
   <h1>The Shoppies</h1>
   <search-bar></search-bar>
   <div class="results-output">
-    <results></results>
-    <nominations-container></nominations-container>
+    <results [searchedString]="searchMovieStoreService.searchedString$ | async"
+      [searchResults]="searchMovieStoreService.results$ | async">
+    </results>
+    <nominations-container [searchedString]="searchMovieStoreService.searchedString$ | async"
+      [nominees]="searchMovieStoreService.nominations$ | async">
+    </nominations-container>
   </div>
-
-  <router-outlet></router-outlet>
 </div>

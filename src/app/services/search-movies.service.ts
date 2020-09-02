@@ -4,10 +4,10 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn : 'root',
+  providedIn: 'root',
 })
 export class SearchService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   private readonly url = 'http://www.omdbapi.com';
   private readonly apiKey: string = '787a8590';
 
@@ -26,10 +26,10 @@ export class SearchService {
 
   private formatResponseErrors(error: HttpErrorResponse) {
     return throwError({
-      error : {
-        error : error.error,
-        status : error.status,
-        statusText : error.statusText,
+      error: {
+        error: error.error,
+        status: error.status,
+        statusText: error.statusText,
       },
     });
   }

@@ -1,12 +1,7 @@
-<span class="sub-header">Nominations"</span>
-<div
-  class="search-results"
-  *ngIf="searchMovieStoreService.nominations$ | async"
->
-  <ng-container *ngFor="let result of searchMovieStoreService.nominations">
-    <movie-card
-      [movieInformation]="result"
-      (click)="removeFronNominations(result)"
-    ></movie-card>
+<span class="sub-header">Nominations -test> {{ searchedString }}</span>
+<div class="search-results">
+  <ng-container *ngFor="let result of nominees">
+    <movie-card [movieInformation]="result" (click)="removeFronNominations(result)">
+    </movie-card>
   </ng-container>
 </div>
