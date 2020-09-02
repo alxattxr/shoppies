@@ -12,8 +12,7 @@ export class SearchService {
   private readonly url = 'http://www.omdbapi.com';
   private readonly apiKey: string = '787a8590';
 
-  //TODO: Chnage type any for return model
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  //TODO: replace any -> SearchResult
   public getMoviesInformations(searchTerm: string, type: ResultType): Observable<any> {
     //TODO: refactor to make it more reusable
     return this.http

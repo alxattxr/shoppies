@@ -47,9 +47,13 @@ export class SearchMovieStoreService {
   //Nominations functions
   public addElementToNominations(movie: MovieInformation): void {
     //imdbID should be enough but just to be sure compare Titles and year or release
-    if (!this._nominations.getValue().some(nominee => nominee.Title === movie.Title && nominee.Year === movie.Year && nominee.imdbID === movie.imdbID)) {
+    if (!this._nominations.getValue().some(nominee => this.compareMovieNominee(movie, nominee)) && this._nominations.getValue().length < 5) {
       this._nominations.next([...this._nominations.getValue(), movie]);
     }
+  }
+
+  private compareMovieNominee(movie: MovieInformation, nominee: MovieInformation): boolean {
+    return nominee.Title === movie.Title && nominee.Year === movie.Year && nominee.imdbID === movie.imdbID
   }
 
   public removeElementFromNominations(movie: MovieInformation): void {
