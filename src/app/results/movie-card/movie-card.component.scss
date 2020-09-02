@@ -1,5 +1,6 @@
 :host{
     display: flex;
+    transition: all 0.4s ease-out;
 
     button {
         justify-self: center;
