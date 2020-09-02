@@ -1,2 +1,12 @@
 <span class="sub-header">Nominations"</span>
-<p>nominations-container works!</p>
+<div
+  class="search-results"
+  *ngIf="searchMovieStoreService.nominations$ | async"
+>
+  <ng-container *ngFor="let result of searchMovieStoreService.nominations">
+    <movie-card
+      [movieInformation]="result"
+      (click)="removeFronNominations(result)"
+    ></movie-card>
+  </ng-container>
+</div>
