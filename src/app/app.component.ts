@@ -9,10 +9,6 @@ import { MovieInformation } from './models/MovieInformation.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
-  title = 'shoppie-app';
-  searchedString = 'test';
-  public nominees: MovieInformation[] = [];
-
   public searchMovieStoreService: SearchMovieStoreService;
 
   constructor(searchMovieStoreService: SearchMovieStoreService) {
@@ -20,9 +16,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.searchMovieStoreService._nominations.subscribe(res => {
-      this.nominees = res;
-      console.log(res);
-    })
+    const savedNominees = JSON.parse(localStorage.getItem("nominees")) as MovieInformation[];
+    if (savedNominees.length) {
+      this.searchMovieStoreService.nominations = savedNominees;
+    }
   }
 }

@@ -49,6 +49,7 @@ export class SearchMovieStoreService {
     //imdbID should be enough but just to be sure compare Titles and year or release
     if (!this._nominations.getValue().some(nominee => this.compareMovieNominee(movie, nominee)) && this._nominations.getValue().length < 5) {
       this._nominations.next([...this._nominations.getValue(), movie]);
+      this.updateLocalStorage();
     }
   }
 
@@ -56,8 +57,13 @@ export class SearchMovieStoreService {
     return nominee.Title === movie.Title && nominee.Year === movie.Year && nominee.imdbID === movie.imdbID
   }
 
+  private updateLocalStorage(): void {
+    localStorage.setItem("nominees", JSON.stringify(this._nominations.getValue()));
+  }
+
   public removeElementFromNominations(movie: MovieInformation): void {
     this.nominations = this._nominations.getValue().filter((m) => m !== movie);
+    this.updateLocalStorage();
   }
 
   public isNominated(nominee: MovieInformation): Observable<boolean> {
