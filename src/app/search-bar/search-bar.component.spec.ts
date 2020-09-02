@@ -8,9 +8,8 @@ describe('SearchBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchBarComponent ]
-    })
-    .compileComponents();
+      declarations: [SearchBarComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,8 +23,8 @@ describe('SearchBarComponent', () => {
   });
 
   it('shoudl erase input content on icon click', () => {
-    component.value = "test";
+    component.value = 'test';
     component.eraseEntry();
     component.value == '';
-  })
+  });
 });

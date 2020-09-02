@@ -1,20 +1,18 @@
-
-@import './../color-variables';
+@import "./../color-variables";
 
 :host {
-    height: 100px;
-    width: 50%;
-    border: solid 1px $primary;
-    border-radius: 4px;
-    background-color: $secondary;
-    margin-right: 8px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  height: 100px;
+  width: 50%;
+  border: solid 1px $primary;
+  border-radius: 4px;
+  background-color: $secondary;
+  margin-right: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
-    .search-results {
-        overflow: auto;
-    }
+  .search-results {
+    overflow: auto;
+  }
 }
-
