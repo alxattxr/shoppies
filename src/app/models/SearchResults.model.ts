@@ -1,7 +1,7 @@
-import { MovieInformation } from "./MovieInformation.model";
+import { MovieInformation } from './MovieInformation.model';
 
 export interface SearchResults {
-    Response: boolean;
-    Search: MovieInformation[];
-    totalResults: string;
+  Response: boolean;
+  Search: MovieInformation[];
+  totalResults: string;
 }

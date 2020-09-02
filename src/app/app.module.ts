@@ -7,9 +7,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { NominationsContainerComponent } from './nominations-container/nominations-container.component';
 import { ResultsComponent } from './results/results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,7 +21,7 @@ import { MovieCardComponent } from './results/movie-card/movie-card.component';
     SearchBarComponent,
     NominationsContainerComponent,
     ResultsComponent,
-    MovieCardComponent
+    MovieCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +32,9 @@ import { MovieCardComponent } from './results/movie-card/movie-card.component';
     MatInputModule,
     MatIconModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
