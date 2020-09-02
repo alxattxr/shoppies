@@ -1,22 +1,10 @@
-<mat-form-field class="search-bar-container" (ngSubmit)="onSubmit()">
+<mat-form-field class="search-bar-container" (keydown.enter)="onSubmit()">
   <mat-label class="search-bar-container__header">Movie Title</mat-label>
-  <mat-icon matPrefix mat-icon-button aria-label="Search" (click)="onSubmit()"
-    >search</mat-icon
-  >
-  <input
-    matInput
-    class="search-bar-container__input"
-    type="text"
-    [(ngModel)]="searchedTerm"
-  />
-  <button
-    mat-icon-button
-    *ngIf="searchedTerm"
-    matSuffix
-    mat-icon-button
-    aria-label="Clear"
-    (click)="eraseEntry()"
-  >
+  <mat-icon matPrefix mat-icon-button aria-label="Search" (click)="onSubmit()">
+    search
+  </mat-icon>
+  <input matInput class="search-bar-container__input" type="text" [(ngModel)]="searchedTerm" />
+  <button mat-icon-button *ngIf="searchedTerm" matSuffix mat-icon-button aria-label="Clear" (click)="eraseEntry()">
     <mat-icon>close</mat-icon>
   </button>
   <!-- if have time tom implement -->

@@ -1,11 +1,13 @@
 @import "./../color-variables";
 
 :host {
-  height: 100px;
+  height: auto;
   width: 50%;
   border: solid 1px $primary;
   border-radius: 4px;
   background-color: $secondary;
   margin-left: 8px;
   padding: 16px;
+  box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.41);
+  margin-bottom: 18px;
 }
