@@ -13,7 +13,7 @@ import { SearchResults } from '../models/SearchResults.model';
     './../shared/components/list/list.component.scss'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [ListAnimation],
+  animations: [ListAnimation]
 })
 export class ResultsComponent extends ListComponent {
   @Input() searchResults: SearchResults;

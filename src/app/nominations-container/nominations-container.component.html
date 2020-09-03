@@ -1,9 +1,9 @@
 <span class="sub-header">Nominations {{nominees.length}}/5</span>
-<div @list class="search-results">
-  <ng-container *ngFor="let result of nominees">
-    <movie-card [movieInformation]="result" 
+<div @list>
+  <ng-container *ngFor="let nominee of nominees">
+    <movie-card [movieInformation]="nominee" 
     [primaryBtnActiveLabel]="'Remove nominee'"
-    (onClick)="removeFronNominations(result)">
+    (onClick)="removeFronNominations(nominee)">
     </movie-card>
   </ng-container>
 </div>

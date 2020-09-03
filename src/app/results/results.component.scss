@@ -1,7 +1,8 @@
 @import "./../color-variables";
 
 :host {
-
+    margin-right: 8px;
+    
     .search-results {
         overflow: auto;
     }
