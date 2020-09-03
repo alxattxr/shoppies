@@ -26,7 +26,6 @@ export class ResultsComponent extends ListComponent {
   }
 
   public addToNomination(nominee: MovieInformation): void {
-    console.log(nominee);
     this.searchMovieStoreService.addElementToNominations(nominee);
   }
 
