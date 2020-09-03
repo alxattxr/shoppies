@@ -9,11 +9,44 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$shoppies-app-primary: mat-palette($mat-indigo);
-$shoppies-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$primary: (
+ Main:#014C3F,
+ Light:#028060,
+ Dark: #00201B,
+ contrast: (
+  Main: #f5f5f5,
+  Light: #f5f5f5,
+  Dark: #f5f5f5
+ ));
+
+ $accent: (
+ Main: #DCAB2E,
+ Light: #e2d23b,
+ Dark: #d16f18,
+ contrast: (
+   Main: #fff,
+   Light: #fff,
+   Dark: #fff
+  ));
+$warn:$mat-red;
+
+// // Define the palettes for your theme using the Material Design palettes available in palette.scss
+// // (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// // hue. Available color palettes: https://material.io/design/color/
+// $shoppies-app-primary: mat-palette($mat-indigo);
+// $shoppies-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+$custom-theme-primary: mat-palette($primary, Main, Light, Dark);
+$custom-theme-accent: mat-palette($accent, Main, Light, Dark);
+$custom-theme-warn: mat-palette($warn, A200, A400, A700);
+
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+@include angular-material-theme($custom-theme);
+@mixin angular-material-theme($theme) {
+  @include mat-button-theme($theme);
+  @include mat-button-toggle-theme($theme);
+  @include mat-card-theme($theme);
+}
 
 // The warn palette is optional (defaults to red).
 $shoppies-app-warn: mat-palette($mat-red);
@@ -23,17 +56,24 @@ $shoppies-app-warn: mat-palette($mat-red);
 $shoppies-app-theme: mat-light-theme(
   (
     color: (
-      primary: $shoppies-app-primary,
-      accent: $shoppies-app-accent,
-      warn: $shoppies-app-warn,
+      primary: $custom-theme-primary,
+      secondary: #fff,
+      accent: $custom-theme-accent,
+      warn: $custom-theme-warn,
     ),
   )
 );
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($shoppies-app-theme);
+$shoppies-app-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $custom-theme-primary,
+      secondary: #000,
+      accent: $custom-theme-accent,
+      warn: $custom-theme-warn,
+    ),
+  )
+);
 
 html,
 body {
@@ -42,9 +82,4 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-.sub-header {
-  font-weight: 600;
-  display: block;
-  color: $primary;
 }

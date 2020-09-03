@@ -8,7 +8,8 @@
   </ng-container>
   <div class="results-output">
     <results [searchedString]="searchMovieStoreService.searchedString$ | async"
-      [searchResults]="searchMovieStoreService.results$ | async">
+      [searchResults]="searchMovieStoreService.results$ | async"
+      [isLoading]="searchMovieStoreService.isLoading$ | async">
     </results>
     <nominations-container [searchedString]="searchMovieStoreService.searchedString$ | async"
       [nominees]="searchMovieStoreService.nominations$ | async">

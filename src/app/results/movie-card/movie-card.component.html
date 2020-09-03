@@ -5,7 +5,8 @@
         <span><i>{{movieInformation.Type}}</i></span>
         <span>({{movieInformation.Year}})</span>
     </div>
-    <button mat-stroked-button (click)="onButtonClick($event)">
-        {{ isNominated(movieInformation) ? "Denominate": "Nominate" }}
+    <button mat-raised-button [color]="isNominated(movieInformation) ? 'primary' : 'secondary'"
+        (click)="onButtonClick($event)">
+        {{ isNominated(movieInformation) ? "Nominated": "Nominate" }}
     </button>
 </div>

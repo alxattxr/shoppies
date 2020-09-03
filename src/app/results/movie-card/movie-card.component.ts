@@ -16,14 +16,14 @@ export class MovieCardComponent implements OnChanges {
     console.log(this.isNominated, this.movieInformation);
   }
 
-  public isNominated(nominee: MovieInformation) {
+  public isNominated(nominee: MovieInformation): boolean {
     if (this.nominations) {
       return this.nominations.some(nom => nom.Title === nominee.Title && nom.Year === nominee.Year && nom.imdbID === nominee.imdbID);
     }
     return false;
   }
 
-  public onButtonClick(event: any): void {
+  public onButtonClick(event: MouseEvent): void {
     this.onClick.emit(event);
   }
 

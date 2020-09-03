@@ -14,6 +14,7 @@ export class ResultsComponent implements OnChanges {
   @Input() searchResults: SearchResults;
   @Input() nominees: MovieInformation[];
   @Input() searchedString: string;
+  @Input() isLoading: boolean;
 
   constructor(searchMovieStoreService: SearchMovieStoreService) {
     this.searchMovieStoreService = searchMovieStoreService;
@@ -22,16 +23,11 @@ export class ResultsComponent implements OnChanges {
   public addToNomination(nominee: MovieInformation): void {
     console.log(nominee);
     this.searchMovieStoreService.addElementToNominations(nominee);
-    console.log(
-      'current nominations: ',
-      this.searchMovieStoreService.nominations
-    );
   }
 
 
   ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
-    console.log(this.searchResults, this.searchedString);
+    console.log(this.searchResults, this.searchedString, this.isLoading);
   }
-
 
 }

@@ -44,6 +44,14 @@ export class SearchMovieStoreService {
     this._nominations.next(nominations);
   }
 
+  get isLoading(): boolean {
+    return this._isLoading.getValue();
+  }
+
+  set isLoading(state: boolean) {
+    this._isLoading.next(state);
+  }
+
   //Nominations functions
   public addElementToNominations(movie: MovieInformation): void {
     //imdbID should be enough but just to be sure compare Titles and year or release
