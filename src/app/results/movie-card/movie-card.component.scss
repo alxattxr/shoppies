@@ -7,28 +7,25 @@
         min-width: auto;
     }
 
-    .test {
+    .card {
         padding: 4px 8px;
         cursor: pointer;
         display: flex;
         width: 100%;
-    
-        &:hover {
-        }
-    }
-    
-    .card-title {
-        font-size: 15px;
-        font-weight: 600;
-    }
 
-    .card-desc {
-        width: 100%;
-        padding-left: 8px;
-        display: flex;
-        flex-direction: column;
-        line-height: initial;
-        justify-content: space-evenly;
+        &__title {
+            font-size: 15px;
+            font-weight: 600; 
+        }
+
+        &__desc {
+            width: 100%;
+            padding-left: 8px;
+            display: flex;
+            flex-direction: column;
+            line-height: initial;
+            justify-content: space-evenly;
+        }
     }
 
     img {

@@ -1,6 +1,11 @@
 <div class="app-container">
   <h1>The Shoppies</h1>
   <search-bar></search-bar>
+  <ng-container *ngIf="searchMovieStoreService.bannerState.isVisible">
+    <banner [context]="searchMovieStoreService.bannerState.context">
+      Thank you for selecting your 5 nominees. for participating in this years Shoppies!
+    </banner>
+  </ng-container>
   <div class="results-output">
     <results [searchedString]="searchMovieStoreService.searchedString$ | async"
       [searchResults]="searchMovieStoreService.results$ | async"

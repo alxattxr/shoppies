@@ -1,20 +1,20 @@
-import { Component, Input, OnChanges, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { MovieInformation } from '../../models/MovieInformation.model';
+import { CardAnimation } from './../../shared/animations/card.animation';
 
 @Component({
   selector: 'movie-card',
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
+  animations: [CardAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MovieCardComponent implements OnChanges {
+export class MovieCardComponent {
   @Input() movieInformation: MovieInformation;
   @Input() nominations: MovieInformation[];
-  @Output() onClick = new EventEmitter<any>();
-
-  ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
-    console.log(this.isNominated, this.movieInformation);
-  }
+  @Input() primaryBtnActiveLabel: string;
+  @Input() primaryBtnDisabledLabel: string;
+  @Output() onClick = new EventEmitter<MouseEvent>();
 
   public isNominated(nominee: MovieInformation): boolean {
     if (this.nominations) {

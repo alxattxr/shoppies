@@ -1,0 +1,40 @@
+@import "./../../../color-variables";
+
+:host {
+    width: 100%;
+    margin-bottom: 8px;
+    display: block;
+
+    .banner {
+        padding: 8px;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .alert {
+        border: solid 1px $alert;
+        border-radius: 4px;
+        background-color: lightcoral;
+    }
+
+    .success {
+        border: solid 1px $success;
+        border-radius: 4px;
+        background-color: lightgreen;
+    }
+
+    .warning {
+        border: solid 1px $warning;
+        border-radius: 4px;
+        background-color: lightgoldenrodyellow;
+    }
+
+    .info {
+        border: solid 1px $info;
+        border-radius: 4px;
+        background-color: lightblue;
+    }
+
+}

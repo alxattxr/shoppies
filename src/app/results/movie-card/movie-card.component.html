@@ -1,12 +1,12 @@
-<div class="test">
+<div @items class="card">
     <img [src]="movieInformation.Poster" alt="No poster found :/">
-    <div class="card-desc">
-        <span class="card-title">{{movieInformation.Title}}</span>
+    <div class="card__desc">
+        <span class="card__title">{{movieInformation.Title}}</span>
         <span><i>{{movieInformation.Type}}</i></span>
         <span>({{movieInformation.Year}})</span>
     </div>
-    <button mat-raised-button [color]="isNominated(movieInformation) ? 'primary' : 'secondary'"
+    <button mat-raised-button color="primary" [disabled]="isNominated(movieInformation)" 
         (click)="onButtonClick($event)">
-        {{ isNominated(movieInformation) ? "Nominated": "Nominate" }}
+        {{ isNominated(movieInformation) ? primaryBtnDisabledLabel : primaryBtnActiveLabel }}
     </button>
 </div>

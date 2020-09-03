@@ -1,3 +1,4 @@
+import { ListComponent } from './shared/components/list/list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MovieCardComponent } from './results/movie-card/movie-card.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { LoaderComponent } from './shared/loader/loader.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { BannerComponent } from './shared/components/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { LoaderComponent } from './shared/loader/loader.component';
     ResultsComponent,
     MovieCardComponent,
     LoaderComponent,
+    BannerComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
