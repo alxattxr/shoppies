@@ -9,9 +9,10 @@
 }
 
 .header {
-  font-size: 3em !important;
+  font-size: 3em;
+  line-height: 80px;
   text-decoration-line: underline;
-  text-decoration-color: $accent-primary;
+  text-decoration-color: $shopify-green-primary-dark;
   color: $shopify-green-primary;
 }
 

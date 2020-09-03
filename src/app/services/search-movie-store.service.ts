@@ -10,7 +10,7 @@ import { BannerContext } from '../enums/BannerContext.enum';
 })
 export class SearchMovieStoreService {
   //State: Search
-  readonly _searchedString = new BehaviorSubject<string>('');
+  readonly _searchedString = new BehaviorSubject<string>(null);
   readonly searchedString$ = this._searchedString.asObservable();
   readonly _isLoading = new BehaviorSubject<boolean>(false);
   readonly isLoading$ = this._isLoading.asObservable();
@@ -86,11 +86,11 @@ export class SearchMovieStoreService {
   //Nominations functions
   public addElementToNominations(movie: MovieInformation): void {
     //imdbID should be enough but just to be sure compare Titles and year or release
-    if (!this._nominations.getValue().some(nominee => 
-      this.compareMovieNominee(movie, nominee)) && 
+    if (!this._nominations.getValue().some(nominee =>
+      this.compareMovieNominee(movie, nominee)) &&
       this._nominations.getValue().length < this._nominationLimit.getValue()) {
-        this._nominations.next([...this._nominations.getValue(), movie]);
-        this.updateLocalStorage();
+      this._nominations.next([...this._nominations.getValue(), movie]);
+      this.updateLocalStorage();
     }
   }
 
