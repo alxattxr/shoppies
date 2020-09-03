@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { SearchResults } from '../models/SearchResults.model';
 import { MovieInformation } from '../models/MovieInformation.model';
+import { BannerState } from '../models/BannerState.model';
+import { BannerContext } from '../enums/BannerContext.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +21,12 @@ export class SearchMovieStoreService {
   readonly results$ = this._results.asObservable();
   readonly _nominations = new BehaviorSubject<MovieInformation[]>([]);
   readonly nominations$ = this._nominations.asObservable();
+  readonly _bannerState = new BehaviorSubject<BannerState>({
+    isVisible: false,
+    context: BannerContext.Success
+  });
+  readonly bannerState$ = this._bannerState.asObservable();
+
 
   get searchedString(): string {
     return this._searchedString.getValue();
@@ -50,6 +58,14 @@ export class SearchMovieStoreService {
 
   set isLoading(state: boolean) {
     this._isLoading.next(state);
+  }
+
+  get bannerState(): BannerState {
+    return this._bannerState.getValue();
+  }
+
+  set bannerState(state: BannerState) {
+    this._bannerState.next(state);
   }
 
   //Nominations functions

@@ -10,6 +10,7 @@ import { MovieInformation } from './models/MovieInformation.model';
 })
 export class AppComponent implements OnInit {
   public searchMovieStoreService: SearchMovieStoreService;
+  // private timeout = 0;
 
   constructor(searchMovieStoreService: SearchMovieStoreService) {
     this.searchMovieStoreService = searchMovieStoreService;
@@ -21,4 +22,13 @@ export class AppComponent implements OnInit {
       this.searchMovieStoreService.nominations = savedNominees;
     }
   }
+
+  //Uncomment if you want info banner if user dont move mouse for more than 30sec
+  //add (document:mousemove)="onMouseMove($event)" to the first div
+  //Disabled because it was a bit to intrusive for my taste but the option is here  
+  // 
+  // onMouseMove() {
+  //   clearTimeout(this.timeout);
+  //   this.timeout = window.setTimeout(() => { alert("move your mouse"); }, 30000);
+  // }
 }

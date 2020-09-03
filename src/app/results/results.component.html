@@ -1,6 +1,6 @@
 <ng-container *ngIf="!isLoading && (searchedString !== ''); else loading">
   <span class="sub-header">Results for "{{ searchedString }}"</span>
-  <div class="search-results" *ngIf="searchResults.Response && searchedString.length; else noResults">
+  <div class="search-results" *ngIf="searchResults.Response && searchedString.length; else noResults" @list>
     <ng-container *ngFor="let result of searchResults.Search">
       <movie-card [nominations]="searchMovieStoreService.nominations$ | async" [movieInformation]="result"
         (onClick)="addToNomination(result)">

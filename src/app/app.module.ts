@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MovieCardComponent } from './results/movie-card/movie-card.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { BannerComponent } from './shared/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
     ResultsComponent,
     MovieCardComponent,
     LoaderComponent,
+    BannerComponent,
   ],
   imports: [
     BrowserModule,
