@@ -1,22 +1,22 @@
 <ng-container *ngIf="searchedString !== ''; else emptySearch">
-  <ng-container *ngIf="isLoading; else loading">
+  <ng-container *ngIf="!isLoading; else loading">
     <span class="sub-header">Results for "{{ searchedString }}"</span>
-    <div @list class="search-results" *ngIf="searchResults.Response && searchedString.length; else noResults">
+    <div @list class="search-results" *ngIf="searchResults.Response; else noResults">
       <ng-container *ngFor="let result of searchResults.Search">
         <movie-card [nominations]="searchMovieStoreService.nominations$ | async" [movieInformation]="result"
-          [primaryBtnActiveLabel]="'Nominate'"
-          [primaryBtnDisabledLabel]="'Nominated'"
-          [activeLimit]="this.searchMovieStoreService.nominationLimit"
-          (onClick)="addToNomination(result)">
+          [primaryBtnActiveLabel]="'Nominate'" [primaryBtnDisabledLabel]="'Nominated'"
+          [activeLimit]="this.searchMovieStoreService.nominationLimit" (onClick)="addToNomination(result)">
         </movie-card>
       </ng-container>
     </div>
-
-    <ng-template #noResults *ngIf="searchedString.length">
-      <loader [label]="'Searching'" [diameter]="40"></loader>
-      <span>:/ nothing was found for {{ searchedString }}</span>
+    <ng-template #noResults>
+      <span>Nothing was found for "{{ searchedString }}"</span>
+      <span>Or maybe to many choice try to be more specific"</span>
     </ng-template>
   </ng-container>
+  <ng-template #loading>
+    <loader [label]="'Searching'" [diameter]="40"></loader>
+  </ng-template>
 </ng-container>
 
 <ng-template #emptySearch>
