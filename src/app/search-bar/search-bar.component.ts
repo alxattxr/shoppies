@@ -38,6 +38,9 @@ export class SearchBarComponent implements OnDestroy {
       .subscribe((searchResult: SearchResults) => {
         this._searchMovieStoreService.results = searchResult;
         this._searchMovieStoreService.isLoading = false;
+      }, err => {
+        console.error(err);
+        this._searchMovieStoreService.isLoading = false;
       });
   }
 }

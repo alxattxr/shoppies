@@ -11,7 +11,7 @@ import { MovieInformation } from './models/MovieInformation.model';
 export class AppComponent implements OnInit {
   public searchMovieStoreService: SearchMovieStoreService;
   //Hard Coded value 5 since we want a limit of 5 movies but this can be change
-  private readonly limit: number = 3;
+  private readonly limit: number = 5;
   // private timeout = 0;
 
   constructor(searchMovieStoreService: SearchMovieStoreService) {

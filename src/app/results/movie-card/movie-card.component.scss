@@ -12,14 +12,19 @@
         cursor: pointer;
         display: flex;
         width: 100%;
+        min-width: 0;
 
         &__title {
             font-size: 15px;
             font-weight: 600; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         &__desc {
             width: 100%;
+            min-width: 0;
             padding-left: 8px;
             display: flex;
             flex-direction: column;
