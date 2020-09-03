@@ -10,6 +10,8 @@ import { MovieInformation } from './models/MovieInformation.model';
 })
 export class AppComponent implements OnInit {
   public searchMovieStoreService: SearchMovieStoreService;
+  //Hard Coded value 5 since we want a limit of 5 movies but this can be change
+  private readonly limit: number = 3;
   // private timeout = 0;
 
   constructor(searchMovieStoreService: SearchMovieStoreService) {
@@ -17,10 +19,23 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //Hard Coded value 5 since we want a limit of 5 movies but this can be change.
+    this.searchMovieStoreService.nominationLimit = this.limit;
     const savedNominees = JSON.parse(localStorage.getItem("nominees")) as MovieInformation[];
     if (savedNominees.length) {
-      this.searchMovieStoreService.nominations = savedNominees;
+      this.searchMovieStoreService.nominations = 
+        this.hasMoreMoviesThanLimit(savedNominees) ? this.reduceArrayToLimit(savedNominees, this.searchMovieStoreService.nominationLimit)
+        : savedNominees;
     }
+  }
+
+  private hasMoreMoviesThanLimit(movies: MovieInformation[]): boolean {
+    return movies.length > this.searchMovieStoreService.nominationLimit;
+  }
+
+  private reduceArrayToLimit(movieInformationAr: MovieInformation[], limit: number): MovieInformation[]{
+    console.log(movieInformationAr.slice(0, limit));
+    return movieInformationAr.slice(0, limit);
   }
 
   //Uncomment if you want info banner if user dont move mouse for more than 30sec
