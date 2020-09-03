@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter, OnChanges } from '@angular/core';
 import { MovieInformation } from '../../models/MovieInformation.model';
 import { CardAnimation } from './../../shared/animations/card.animation';
 
@@ -9,22 +9,45 @@ import { CardAnimation } from './../../shared/animations/card.animation';
   animations: [CardAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MovieCardComponent {
+export class MovieCardComponent implements OnChanges {
   @Input() movieInformation: MovieInformation;
   @Input() nominations: MovieInformation[];
   @Input() primaryBtnActiveLabel: string;
   @Input() primaryBtnDisabledLabel: string;
+  @Input() activeLimit: number;
+
   @Output() onClick = new EventEmitter<MouseEvent>();
 
-  public isNominated(nominee: MovieInformation): boolean {
+  public isDisabled: boolean = false;
+
+  ngOnChanges(): void {
+    this.isDisabled = (this.isNominated() || this.isLimitReached());
+  }
+
+  private isNominated(): boolean {
     if (this.nominations) {
-      return this.nominations.some(nom => nom.Title === nominee.Title && nom.Year === nominee.Year && nom.imdbID === nominee.imdbID);
+      return this.nominations.some(nom => 
+        nom.Title === this.movieInformation.Title && 
+        nom.Year === this.movieInformation.Year && 
+        nom.imdbID === this.movieInformation.imdbID
+      );
+    }
+    return false;
+  }
+
+  private isLimitReached(): boolean {
+    if (this.activeLimit) {
+      return this.nominations.length === this.activeLimit;
     }
     return false;
   }
 
   public onButtonClick(event: MouseEvent): void {
     this.onClick.emit(event);
+  }
+
+  public getDisabledLabel(): string {
+    return this.isLimitReached() ? "Nomination limit rechead" : this.primaryBtnDisabledLabel;
   }
 
 }

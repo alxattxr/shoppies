@@ -3,8 +3,9 @@
   <div @list class="search-results" *ngIf="searchResults.Response && searchedString.length; else noResults">
     <ng-container *ngFor="let result of searchResults.Search">
       <movie-card [nominations]="searchMovieStoreService.nominations$ | async" [movieInformation]="result"
-      [primaryBtnActiveLabel]="'Nominate'"
-      [primaryBtnDisabledLabel]="'Nominated'"
+        [primaryBtnActiveLabel]="'Nominate'"
+        [primaryBtnDisabledLabel]="'Nominated'"
+        [activeLimit]="this.searchMovieStoreService.nominationLimit"
         (onClick)="addToNomination(result)">
       </movie-card>
     </ng-container>

@@ -5,8 +5,8 @@
         <span><i>{{movieInformation.Type}}</i></span>
         <span>({{movieInformation.Year}})</span>
     </div>
-    <button mat-raised-button color="primary" [disabled]="isNominated(movieInformation)" 
+    <button mat-raised-button color="primary" [disabled]="isDisabled" 
         (click)="onButtonClick($event)">
-        {{ isNominated(movieInformation) ? primaryBtnDisabledLabel : primaryBtnActiveLabel }}
+        {{ isDisabled ? getDisabledLabel() : primaryBtnActiveLabel }}
     </button>
 </div>

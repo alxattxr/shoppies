@@ -1,4 +1,4 @@
-<span class="sub-header">Nominations {{nominees.length}}/5</span>
+<span class="sub-header">Nominations {{nominees.length}}/{{this.searchMovieStoreService.nominationLimit}}</span>
 <div @list>
   <ng-container *ngFor="let nominee of nominees">
     <movie-card [movieInformation]="nominee" 
