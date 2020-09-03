@@ -26,11 +26,12 @@ export class SearchBarComponent {
 
   public onSubmit(): void {
     this._searchMovieStoreService.searchedString = this.searchedTerm;
+    this._searchMovieStoreService.isLoading = true;
     this._searchService
       .getMoviesInformations(this.searchedTerm, this.searchType)
       .subscribe((searchResult: SearchResults) => {
         this._searchMovieStoreService.results = searchResult;
-        console.log('test now:', this._searchMovieStoreService.results);
+        this._searchMovieStoreService.isLoading = false;
       });
   }
 }
