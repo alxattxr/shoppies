@@ -9,6 +9,7 @@ import { BannerContext } from '../enums/BannerContext.enum';
   providedIn: 'root',
 })
 export class SearchMovieStoreService {
+  //State: Search
   readonly _searchedString = new BehaviorSubject<string>('');
   readonly searchedString$ = this._searchedString.asObservable();
   readonly _isLoading = new BehaviorSubject<boolean>(false);
@@ -19,8 +20,14 @@ export class SearchMovieStoreService {
     totalResults: ''
   });
   readonly results$ = this._results.asObservable();
+
+  //State: Nominations
   readonly _nominations = new BehaviorSubject<MovieInformation[]>([]);
   readonly nominations$ = this._nominations.asObservable();
+  readonly _nominationLimit = new BehaviorSubject<number>(0);
+  readonly nominationLimit$ = this._nominations.asObservable();
+
+  //State: Banner
   readonly _bannerState = new BehaviorSubject<BannerState>({
     isVisible: false,
     context: BannerContext.Success
@@ -68,13 +75,28 @@ export class SearchMovieStoreService {
     this._bannerState.next(state);
   }
 
+  get nominationLimit(): number {
+    return this._nominationLimit.getValue();
+  }
+
+  set nominationLimit(limit: number) {
+    this._nominationLimit.next(limit);
+  }
+
   //Nominations functions
   public addElementToNominations(movie: MovieInformation): void {
     //imdbID should be enough but just to be sure compare Titles and year or release
-    if (!this._nominations.getValue().some(nominee => this.compareMovieNominee(movie, nominee)) && this._nominations.getValue().length < 5) {
-      this._nominations.next([...this._nominations.getValue(), movie]);
-      this.updateLocalStorage();
+    if (!this._nominations.getValue().some(nominee => 
+      this.compareMovieNominee(movie, nominee)) && 
+      this._nominations.getValue().length < this._nominationLimit.getValue()) {
+        this._nominations.next([...this._nominations.getValue(), movie]);
+        this.updateLocalStorage();
     }
+  }
+
+  public removeElementFromNominations(movie: MovieInformation): void {
+    this.nominations = this._nominations.getValue().filter((m) => m !== movie);
+    this.updateLocalStorage();
   }
 
   private compareMovieNominee(movie: MovieInformation, nominee: MovieInformation): boolean {
@@ -82,12 +104,8 @@ export class SearchMovieStoreService {
   }
 
   private updateLocalStorage(): void {
+    //Hardcoded for 'nominees' since only information storing in the local storage
     localStorage.setItem("nominees", JSON.stringify(this._nominations.getValue()));
-  }
-
-  public removeElementFromNominations(movie: MovieInformation): void {
-    this.nominations = this._nominations.getValue().filter((m) => m !== movie);
-    this.updateLocalStorage();
   }
 
   public isNominated(nominee: MovieInformation): Observable<boolean> {
