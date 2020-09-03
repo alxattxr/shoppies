@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges } from '@angular/core';
-import { BannerContext } from '../../enums/BannerContext.enum';
+import { Component, Input } from '@angular/core';
+import { BannerContext } from './../../../enums/BannerContext.enum';
 
 @Component({
   selector: 'banner',

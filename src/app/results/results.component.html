@@ -1,8 +1,10 @@
 <ng-container *ngIf="!isLoading && (searchedString !== ''); else loading">
   <span class="sub-header">Results for "{{ searchedString }}"</span>
-  <div class="search-results" *ngIf="searchResults.Response && searchedString.length; else noResults" @list>
+  <div @list class="search-results" *ngIf="searchResults.Response && searchedString.length; else noResults">
     <ng-container *ngFor="let result of searchResults.Search">
       <movie-card [nominations]="searchMovieStoreService.nominations$ | async" [movieInformation]="result"
+      [primaryBtnActiveLabel]="'Nominate'"
+      [primaryBtnDisabledLabel]="'Nominated'"
         (onClick)="addToNomination(result)">
       </movie-card>
     </ng-container>
