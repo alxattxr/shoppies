@@ -7,3 +7,9 @@
         overflow: auto;
     }
 }
+
+@media screen and (max-width: 1020px) {
+    :host {
+        margin-right: 0px;
+    }
+}

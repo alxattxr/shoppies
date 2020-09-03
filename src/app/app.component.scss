@@ -1,5 +1,5 @@
 @import "./color-variables";
-.app-container {
+.main {
   padding: 40px 80px;
   background-color: $background;
   display: flex;
@@ -18,4 +18,14 @@
 .results-output {
   display: flex;
   flex-direction: row;
+}
+
+@media screen and (max-width: 1020px) {
+  .main {
+    padding: 10px 20px;
+  }
+
+  .results-output {
+    flex-direction: column-reverse;
+  }  
 }
