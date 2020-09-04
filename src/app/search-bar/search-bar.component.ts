@@ -32,9 +32,9 @@ export class SearchBarComponent implements OnDestroy {
   }
 
   public onSubmit(): void {
-    this._searchMovieStoreService.searchedString = this.searchedTerm;
-    this._searchMovieStoreService.isLoading = true;
     if (this.searchedTerm) {
+      this._searchMovieStoreService.searchedString = this.searchedTerm;
+      this._searchMovieStoreService.isLoading = true;
       this._subscription = this._searchService
         .getMoviesInformations(this.searchedTerm, this._searchType)
         .subscribe((searchResult: SearchResults) => {
@@ -45,9 +45,8 @@ export class SearchBarComponent implements OnDestroy {
           this._searchMovieStoreService.isLoading = false;
         });
     } else {
-      this._searchMovieStoreService.bannerState = { isVisible: true, context: BannerContext.Alert, message: "test" }
+      this._searchMovieStoreService.bannerState = { isVisible: true, context: BannerContext.Alert, message: "Cannot search with an empty string. Please enter a movie title" }
       setTimeout(() => {
-        console.log("after 2sec");
         this._searchMovieStoreService.bannerState = { ...this._searchMovieStoreService.bannerState, isVisible: false };
       }, 3000);
     }
