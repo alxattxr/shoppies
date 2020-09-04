@@ -18,6 +18,16 @@
   ],
   "rules": {
     "no-import-assign": "error",
+    "@typescript-eslint/no-inferrable-types": true,
+    "ignoreParameters": true,
+    "ignoreProperties": true,
+    "no-unused-vars": [
+      "error", {
+        "vars": "all", 
+        "args": "after-used", 
+        "ignoreRestSiblings": false 
+      }
+    ],
     "semi-style": [
       "error",
       "last"

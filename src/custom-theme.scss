@@ -10,9 +10,9 @@
 @include mat-core();
 
 $primary: (
- Main:#014C3F,
- Light:#028060,
- Dark: #00201B,
+ Main: $shopify-green-primary,
+ Light: $shopify-green-primary-light,
+ Dark: $shopify-green-primary-dark,
  contrast: (
   Main: #f5f5f5,
   Light: #f5f5f5,
@@ -20,7 +20,7 @@ $primary: (
  ));
 
  $accent: (
- Main: #DCAB2E,
+ Main: $accent-primary,
  Light: #e2d23b,
  Dark: #d16f18,
  contrast: (
@@ -82,4 +82,14 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

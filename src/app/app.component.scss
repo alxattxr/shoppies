@@ -1,10 +1,32 @@
 @import "./color-variables";
-.app-container {
+.main {
   padding: 40px 80px;
   background-color: $background;
+  display: flex;
+  flex-direction: column;
+  height: -webkit-fill-available;
+  min-height: 0;
+}
+
+.header {
+  font-size: 3em;
+  line-height: 80px;
+  text-decoration-line: underline;
+  text-decoration-color: $accent-primary;
+  color: $shopify-green-primary;
 }
 
 .results-output {
   display: flex;
   flex-direction: row;
+}
+
+@media screen and (max-width: 1020px) {
+  .main {
+    padding: 10px 20px;
+  }
+
+  .results-output {
+    flex-direction: column-reverse;
+  }  
 }

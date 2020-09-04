@@ -1,18 +1,28 @@
 @import "./../color-variables";
 
-.search-bar-container {
-  border: solid;
-  border-width: 1px;
-  border-color: $primary;
-  border-radius: 4px;
-  background-color: $secondary;
-  padding: 8px 16px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.41);
-  margin-bottom: 18px;
+:host {
+  .search-bar {
+    border: solid 1px $grey;
+    border-radius: 4px;
+    background-color: $secondary;
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.41);
+    margin-bottom: 18px;
 
-  &__header {
-    color: $primary;
+    &__header {
+      color: $primary;
+    }
+
+    &__icon {
+      position: relative;
+      top: 4px;
+    }
+  }
+  ::ng-deep .mat-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

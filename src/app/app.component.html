@@ -1,18 +1,20 @@
-<div class="app-container">
-  <h1>The Shoppies</h1>
+<div class="main">
+  <span class="header">The Shoppies</span>
   <search-bar></search-bar>
-  <ng-container *ngIf="searchMovieStoreService.bannerState.isVisible">
-    <banner [context]="searchMovieStoreService.bannerState.context">
-      Thank you for selecting your 5 nominees. for participating in this years Shoppies!
+  <div *ngIf="(searchMovieStoreService.bannerState$ | async)?.isVisible" [@slideInOut]>
+    <banner [context]="(searchMovieStoreService.bannerState$ | async)?.context">
+      {{(searchMovieStoreService.bannerState$ | async)?.message}}
     </banner>
-  </ng-container>
-  <div class="results-output">
-    <results [searchedString]="searchMovieStoreService.searchedString$ | async"
-      [searchResults]="searchMovieStoreService.results$ | async"
-      [isLoading]="searchMovieStoreService.isLoading$ | async">
-    </results>
-    <nominations-container [searchedString]="searchMovieStoreService.searchedString$ | async"
-      [nominees]="searchMovieStoreService.nominations$ | async">
-    </nominations-container>
   </div>
+  <ng-container>
+    <div class="results-output">
+      <results [searchedString]="searchMovieStoreService.searchedString$ | async"
+        [searchResults]="searchMovieStoreService.results$ | async"
+        [isLoading]="searchMovieStoreService.isLoading$ | async">
+      </results>
+      <nominations-container [searchedString]="searchMovieStoreService.searchedString$ | async"
+        [nominees]="searchMovieStoreService.nominations$ | async">
+      </nominations-container>
+    </div>
+  </ng-container>
 </div>

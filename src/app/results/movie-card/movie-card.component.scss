@@ -12,19 +12,32 @@
         cursor: pointer;
         display: flex;
         width: 100%;
+        min-width: 0;
 
         &__title {
             font-size: 15px;
             font-weight: 600; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         &__desc {
             width: 100%;
+            min-width: 0;
             padding-left: 8px;
             display: flex;
             flex-direction: column;
             line-height: initial;
             justify-content: space-evenly;
+        }
+
+        &__broken-img {
+            width: 35px;
+            min-width: 35px;
+            display: flex;
+            justify-content: center;
+            align-self: center;
         }
     }
 

@@ -16,25 +16,25 @@
     .alert {
         border: solid 1px $alert;
         border-radius: 4px;
-        background-color: lightcoral;
+        background-color: $alert-light;
     }
 
     .success {
         border: solid 1px $success;
         border-radius: 4px;
-        background-color: lightgreen;
+        background-color: $success-light;
     }
 
     .warning {
         border: solid 1px $warning;
         border-radius: 4px;
-        background-color: lightgoldenrodyellow;
+        background-color: $warning-light;
     }
 
     .info {
         border: solid 1px $info;
         border-radius: 4px;
-        background-color: lightblue;
+        background-color: $info-light;
     }
 
 }

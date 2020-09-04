@@ -6,4 +6,28 @@
     .search-results {
         overflow: auto;
     }
+
+    .empty-search {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        &__icon {
+            height: auto;
+            width: auto;
+            font-size: 80px;
+        }
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    :host {
+        margin-right: 0px;
+    }
+
+    .empty-search__label {
+        text-align: center;
+    }
 }
