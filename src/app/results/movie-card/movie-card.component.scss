@@ -31,6 +31,14 @@
             line-height: initial;
             justify-content: space-evenly;
         }
+
+        &__broken-img {
+            width: 35px;
+            min-width: 35px;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+        }
     }
 
     img {

@@ -47,7 +47,7 @@ export class MovieCardComponent implements OnChanges {
   }
 
   public getDisabledLabel(): string {
-    return this.isLimitReached() ? "Nomination limit rechead" : this.primaryBtnDisabledLabel;
+    return this.isLimitReached() ? "Nomination limit reached" : this.primaryBtnDisabledLabel;
   }
 
 }

@@ -1,7 +1,7 @@
-<ng-container *ngIf="searchedString !== ''; else emptySearch">
-  <ng-container *ngIf="!isLoading; else loading">
+<ng-container *ngIf="!isLoading; else loading">
+  <ng-container *ngIf="searchedString; else landingPage">
     <span class="sub-header">Results for "{{ searchedString }}"</span>
-    <div @list class="search-results" *ngIf="searchResults.Response; else noResults">
+    <div @list class="search-results" *ngIf="!searchResults.Error; else noResults">
       <ng-container *ngFor="let result of searchResults.Search">
         <movie-card [nominations]="searchMovieStoreService.nominations$ | async" [movieInformation]="result"
           [primaryBtnActiveLabel]="'Nominate'" [primaryBtnDisabledLabel]="'Nominated'"
@@ -10,15 +10,25 @@
       </ng-container>
     </div>
     <ng-template #noResults>
-      <span>Nothing was found for "{{ searchedString }}"</span>
-      <span>Or maybe to many choice try to be more specific"</span>
+      <div class="empty-search">
+        <mat-icon class="empty-search__icon">
+          search
+        </mat-icon>
+        <span class="empty-search__label">Hmm looks like your search was unconclusive</span>
+        <span class="empty-search__label">Try to be a bit more precise</span>
+      </div>
     </ng-template>
   </ng-container>
-  <ng-template #loading>
-    <loader [label]="'Searching'" [diameter]="40"></loader>
+  <ng-template #landingPage>
+    <div class="empty-search">
+      <mat-icon class="empty-search__icon">
+        how_to_vote
+      </mat-icon>
+      <span class="empty-search__label"> Welcome to the shoppies application! </span>
+      <span class="empty-search__label"> Simply search for your movie titles and vote your favorites!</span>
+    </div>
   </ng-template>
 </ng-container>
-
-<ng-template #emptySearch>
-  <span>:/ nothing was found for {{ searchedString }}</span>
+<ng-template #loading>
+  <loader [label]="'Searching'" [diameter]="40"></loader>
 </ng-template>
