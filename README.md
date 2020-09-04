@@ -1,27 +1,29 @@
-# ShoppiesApp
+# The Shoppies web app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
+This is my take on the Winter 2021 Shopify Web Development Internship Challenge. 
+For this challenge I decided to use Angular 10 (latest verison) and Scss for styling.
+I tried to deliver a reliable and performant application.
+Hope you enjoy!😄
 
-## Development server
+## Run the project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install the dependencies by running `npm install` from the root directory.
+Once completed run `npm run start`. 
+Navigate to `http://localhost:4200/`.
+Enjoy!
 
-## Code scaffolding
+## Extra features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+I added the following extra features :
+- Animations (Banner, result list, nomination list, loading)
+- Nomination saved in LocalStorage
+- Poster image to the movie card 
+- Clear search field on click
+- Error handling 
+- Error notifaction banner.
 
-## Build
+### Some features were included in the code but commented out
+I included some features that I thought were intresting at first but than decided not to include in the 'deployed' project since I thought they were a bit invasive. But if you want to check them out there's the:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Feedback
+Please let me know if you find bugs or defects (hopefully not). 
