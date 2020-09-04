@@ -26,9 +26,9 @@ export class MovieCardComponent implements OnChanges {
 
   private isNominated(): boolean {
     if (this.nominations) {
-      return this.nominations.some(nom => 
-        nom.Title === this.movieInformation.Title && 
-        nom.Year === this.movieInformation.Year && 
+      return this.nominations.some(nom =>
+        nom.Title === this.movieInformation.Title &&
+        nom.Year === this.movieInformation.Year &&
         nom.imdbID === this.movieInformation.imdbID
       );
     }

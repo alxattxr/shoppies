@@ -99,9 +99,7 @@ export class SearchMovieStoreService {
       // else {
       //   this.bannerState = this.createNewBanner(BannerContext.Info, `${movie.Title} was added to you nomination list. You have ${this._nominationLimit.getValue() - this._nominations.getValue().length} more movie to select`);
       //   setTimeout(() => {
-      //     console.log("after 2sec");
       //     this.bannerState = { ...this.bannerState, isVisible: false };
-      //     console.log(this.bannerState);
       //   }, 2000);
       // }
     }
