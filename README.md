@@ -23,7 +23,7 @@ I added the following extra features :
 - Error notifaction banner.
 
 ### Some features were included in the code but commented out
-I included some features that I thought were intresting at first but than decided not to include in the 'deployed' project since I thought they were a bit invasive.<br>
+I included some features that I thought were intresting at first but than decided not to include them in the 'deployed' project since I thought they were a bit invasive.<br>
 If you want to check them out there's the search for: **'Unreleased Feature'** and uncomment the comment block below.
 
 ## Feedback
