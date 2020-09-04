@@ -3,7 +3,7 @@
   <mat-icon class="search-bar__icon noselect" matPrefix mat-icon-button aria-label="Search">
     search
   </mat-icon>
-  <input matInput type="text" [(ngModel)]="searchedTerm" />
+  <input matInput type="text" [(ngModel)]="searchedTerm" color="warn" />
   <button mat-icon-button class="noselect" *ngIf="searchedTerm" matSuffix mat-icon-button aria-label="Clear"
     (click)="eraseEntry()">
     <mat-icon>close</mat-icon>

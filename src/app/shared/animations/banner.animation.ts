@@ -1,11 +1,23 @@
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, transition, style, animate, state, group } from '@angular/animations';
 
-export const BannerAnimation = trigger('list', [
-    trigger('grow', [
-        transition('void <=> *', []),
-        transition('* <=> *', [
-          style({height: '*', opacity: 0}),
-          animate('.2s ease'),
-        ], {params: {startHeight: 0}})
-      ])
-]);
+export const BannerAnimation = trigger('slideInOut', [
+  state('in', style({ height: '*', opacity: 0 })),
+  transition(':leave', [
+    style({ height: '*', opacity: 1 }),
+
+    group([
+      animate(300, style({ height: 0 })),
+      animate('200ms ease-in-out', style({ 'opacity': '0' }))
+    ])
+
+  ]),
+  transition(':enter', [
+    style({ height: '0', opacity: 0 }),
+
+    group([
+      animate(300, style({ height: '*' })),
+      animate('400ms ease-in-out', style({ 'opacity': '1' }))
+    ])
+
+  ])
+])

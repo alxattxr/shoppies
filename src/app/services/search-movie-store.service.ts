@@ -30,7 +30,8 @@ export class SearchMovieStoreService {
   //State: Banner
   readonly _bannerState = new BehaviorSubject<BannerState>({
     isVisible: false,
-    context: BannerContext.Success
+    context: BannerContext.Info,
+    message: "test"
   });
   readonly bannerState$ = this._bannerState.asObservable();
 
@@ -91,12 +92,27 @@ export class SearchMovieStoreService {
       this._nominations.getValue().length < this._nominationLimit.getValue()) {
       this._nominations.next([...this._nominations.getValue(), movie]);
       this.updateLocalStorage();
+      if (this._nominations.getValue().length === this._nominationLimit.getValue()) {
+        this.bannerState = this.createNewBanner(BannerContext.Success, "Thank you for participating");
+      }
+      //A bit invasive, Notifies the user everytime they add a movie to the nomination list
+      // else {
+      //   this.bannerState = this.createNewBanner(BannerContext.Info, `${movie.Title} was added to you nomination list. You have ${this._nominationLimit.getValue() - this._nominations.getValue().length} more movie to select`);
+      //   setTimeout(() => {
+      //     console.log("after 2sec");
+      //     this.bannerState = { ...this.bannerState, isVisible: false };
+      //     console.log(this.bannerState);
+      //   }, 2000);
+      // }
     }
   }
 
   public removeElementFromNominations(movie: MovieInformation): void {
     this.nominations = this._nominations.getValue().filter((m) => m !== movie);
     this.updateLocalStorage();
+    if (this._nominations.getValue().length === (this._nominationLimit.getValue() - 1)) {
+      this.bannerState = { ...this.bannerState, isVisible: false };
+    }
   }
 
   private compareMovieNominee(movie: MovieInformation, nominee: MovieInformation): boolean {
@@ -111,4 +127,9 @@ export class SearchMovieStoreService {
   public isNominated(nominee: MovieInformation): Observable<boolean> {
     return of(this._nominations.getValue().includes(nominee));
   }
+
+  public createNewBanner(context: BannerContext, message: string): BannerState {
+    return { isVisible: true, context: context, message: message }
+  }
+
 }

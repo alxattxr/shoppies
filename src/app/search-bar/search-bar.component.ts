@@ -4,6 +4,7 @@ import { SearchService } from '../services/search-movies.service';
 import { SearchResults } from '../models/SearchResults.model';
 import { ResultType } from '../enums/ResultType.enum';
 import { Subscription } from 'rxjs';
+import { BannerContext } from '../enums/BannerContext.enum';
 
 @Component({
   selector: 'search-bar',
@@ -13,9 +14,9 @@ import { Subscription } from 'rxjs';
 })
 export class SearchBarComponent implements OnDestroy {
   private _subscription: Subscription;
-  public searchedTerm = '';
   //Since we only want movies
-  private searchType: ResultType = ResultType.Movie;
+  private _searchType: ResultType = ResultType.Movie;
+  public searchedTerm: string = '';
 
   constructor(
     private _searchMovieStoreService: SearchMovieStoreService,
@@ -33,14 +34,22 @@ export class SearchBarComponent implements OnDestroy {
   public onSubmit(): void {
     this._searchMovieStoreService.searchedString = this.searchedTerm;
     this._searchMovieStoreService.isLoading = true;
-    this._subscription = this._searchService
-      .getMoviesInformations(this.searchedTerm, this.searchType)
-      .subscribe((searchResult: SearchResults) => {
-        this._searchMovieStoreService.results = searchResult;
-        this._searchMovieStoreService.isLoading = false;
-      }, err => {
-        console.error(err);
-        this._searchMovieStoreService.isLoading = false;
-      });
+    if (this.searchedTerm) {
+      this._subscription = this._searchService
+        .getMoviesInformations(this.searchedTerm, this._searchType)
+        .subscribe((searchResult: SearchResults) => {
+          this._searchMovieStoreService.results = searchResult;
+          this._searchMovieStoreService.isLoading = false;
+        }, err => {
+          console.error(err);
+          this._searchMovieStoreService.isLoading = false;
+        });
+    } else {
+      this._searchMovieStoreService.bannerState = { isVisible: true, context: BannerContext.Alert, message: "test" }
+      setTimeout(() => {
+        console.log("after 2sec");
+        this._searchMovieStoreService.bannerState = { ...this._searchMovieStoreService.bannerState, isVisible: false };
+      }, 3000);
+    }
   }
 }
