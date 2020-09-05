@@ -95,6 +95,7 @@ export class SearchMovieStoreService {
       if (this._nominations.getValue().length === this._nominationLimit.getValue()) {
         this.bannerState = this.createNewBanner(BannerContext.Success, "Thank you for participating");
       }
+      //Unreleased Feature:
       //A bit invasive, Notifies the user everytime they add a movie to the nomination list
       // else {
       //   this.bannerState = this.createNewBanner(BannerContext.Info, `${movie.Title} was added to you nomination list. You have ${this._nominationLimit.getValue() - this._nominations.getValue().length} more movie to select`);
