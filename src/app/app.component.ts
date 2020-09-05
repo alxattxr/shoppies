@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
     return movieInformationAr.slice(0, limit);
   }
 
-
+  //Unreleased Feature:
   //Uncomment if you want info banner if user dont move mouse for more than 30sec
   //add (document:mousemove)="onMouseMove($event)" to the first div
   //Disabled because it was a bit to intrusive for my taste but the option is here  

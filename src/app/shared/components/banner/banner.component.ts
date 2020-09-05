@@ -10,5 +10,4 @@ import { BannerAnimation } from './../../animations/banner.animation'
 })
 export class BannerComponent {
   @Input() context: BannerContext;
-
 }
