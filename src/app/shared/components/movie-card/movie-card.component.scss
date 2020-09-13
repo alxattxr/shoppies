@@ -13,6 +13,12 @@
         width: 100%;
         min-width: 0;
 
+        &__body {
+            display: flex;
+            width: 100%;
+            min-width: 0;
+        }
+
         &__title {
             font-size: 15px;
             font-weight: 600; 
@@ -45,14 +51,10 @@
     }
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 500px) {
     :host {
         .card {
             flex-direction: column;
-
-            &__body {
-
-            }
         }
 
         button {
