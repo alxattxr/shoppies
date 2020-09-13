@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter, OnChanges } from '@angular/core';
-import { MovieInformation } from '../../models/MovieInformation.model';
-import { CardAnimation } from './../../shared/animations/card.animation';
+import { MovieInformation } from '../../../models/MovieInformation.model';
+import { CardAnimation } from '../../animations/card.animation';
 
 @Component({
   selector: 'movie-card',
