@@ -44,3 +44,24 @@
         height: 50px;
     }
 }
+
+@media screen and (max-width: 1020px) {
+    :host {
+        .card {
+            flex-direction: column;
+
+            &__body {
+
+            }
+        }
+
+        button {
+            margin-top: 4px;
+            width: 100%;
+        }
+
+        img {
+            max-width: 35px;
+        }
+    }
+}
