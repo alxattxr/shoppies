@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     //Hard Coded value 5 since we want a limit of 5 movies but this can be change.
     this.searchMovieStoreService.nominationLimit = this._limit;
     const savedNominees = JSON.parse(localStorage.getItem("nominees")) as MovieInformation[];
-    if (savedNominees.length) {
+    if (savedNominees && savedNominees.length) {
       if (this.hasMoreMoviesThanLimit(savedNominees)) {
         this.searchMovieStoreService.nominations = this.reduceArrayToLimit(savedNominees, this.searchMovieStoreService.nominationLimit);
         this.searchMovieStoreService.bannerState = { isVisible: true, context: BannerContext.Success, message: "Thank you! Your nominations list was saved! But you can always modify it." };
