@@ -41,7 +41,7 @@ export class SearchBarComponent implements OnDestroy {
           this._searchMovieStoreService.results = searchResult;
           this._searchMovieStoreService.isLoading = false;
         }, err => {
-          console.error(err);
+          this._searchMovieStoreService.results = { ... this._searchMovieStoreService.results, Error: err }
           this._searchMovieStoreService.isLoading = false;
         });
     } else {
