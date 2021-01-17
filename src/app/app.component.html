@@ -1,11 +1,11 @@
 <div class="main">
-  <span class="header">The Shoppies</span>
-  <search-bar></search-bar>
   <div *ngIf="(searchMovieStoreService.bannerState$ | async)?.isVisible" [@slideInOut]>
     <banner [context]="(searchMovieStoreService.bannerState$ | async)?.context">
       {{(searchMovieStoreService.bannerState$ | async)?.message}}
     </banner>
   </div>
+  <div class="header">The Annual Shoppies <br> Movies Awards <span class="header__year">2021</span></div>
+  <search-bar></search-bar>
   <ng-container>
     <div class="results-output">
       <results [searchedString]="searchMovieStoreService.searchedString$ | async"
