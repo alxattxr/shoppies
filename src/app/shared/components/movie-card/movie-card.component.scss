@@ -1,3 +1,9 @@
+@import "./../../../color-variables";
+@font-face {
+    font-family: PosterFont;
+    src: url(./../../../../assets/BebasNeue-Regular.ttf);
+}
+
 :host{
     display: flex;
 
@@ -5,36 +11,45 @@
         justify-self: center;
         align-self: center;
         min-width: auto;
+        width: 90%;
     }
 
     .card {
-        padding: 4px 8px;
         display: flex;
-        width: 100%;
-        min-width: 0;
+        flex-direction: column;
+
+        &__top-half {
+            display: flex;
+        }
 
         &__body {
-            display: flex;
-            width: 100%;
+            width: 164px;
+            background-color: $light-grey;
             min-width: 0;
+            height: 232px;
+            padding: 8px;
+            margin-bottom: 8px;
         }
 
         &__title {
-            font-size: 15px;
-            font-weight: 600; 
-            white-space: nowrap;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 20px;
+            max-height: 40px;
+            max-width: 92px;
+            display: flex;
             overflow: hidden;
             text-overflow: ellipsis;
+            text-transform: uppercase;
+            font-family: PosterFont;
         }
 
         &__desc {
+            display: flex;
             width: 100%;
             min-width: 0;
-            padding-left: 8px;
-            display: flex;
-            flex-direction: column;
             line-height: initial;
-            justify-content: space-evenly;
+            margin-top: 4px;
         }
 
         &__broken-img {
@@ -44,10 +59,47 @@
             justify-content: center;
             align-self: center;
         }
+
+        &__position {
+            position: relative;
+            font-size: 3em;
+            transform: translate(-120px, -5px);
+            text-shadow: 4px 2px $pink;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: $dark-grey;
+        }
+    }
+
+    .movie-year {
+        padding-left: 4px;
+        font-size: 12px;
+        font-weight: 200;
+        justify-content: end;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .movie-type--prefix {
+        font-size: 10px;
+        font-weight: 200; 
+    }
+
+    .movie-type {
+        padding-left: 15px;
+        font-family: PosterFont;
+
+        &--prefix {
+            color: #545454;
+        }
     }
 
     img {
-        height: 50px;
+        border: solid 8px $white;
+        height: 155px;
+        width: 105px;
+        object-fit: cover;
     }
 }
 
@@ -60,10 +112,6 @@
         button {
             margin-top: 4px;
             width: 100%;
-        }
-
-        img {
-            max-width: 35px;
         }
     }
 }

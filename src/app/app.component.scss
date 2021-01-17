@@ -1,36 +1,73 @@
 @import "./color-variables";
+@font-face {
+  font-family: PosterFont;
+  src: url(./../assets/BebasNeue-Regular.ttf);
+}
+
 :host {
+  .shoppies-banner {
+    height: auto;
+    max-height: 80%;
+    max-width: 80%;
+    align-self: center;
+  }
+
   .main {
-    padding: 40px 80px;
-    background-color: $background;
+    padding: 0px 80px;
     display: flex;
     flex-direction: column;
-    height: -webkit-fill-available;
+    height: 100%;
     min-height: 0;
+    background-color: $white;
+    background-image: url(./../assets/background.svg);
+    background-position: unset;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   .header {
-    font-size: 3em;
-    line-height: 80px;
-    text-decoration-line: underline;
-    text-decoration-color: $accent-primary;
-    color: $shopify-green-primary;
+    font-size: 2.8em;
+    line-height: 1em;
+    background-color: #FFBD59;
+    padding: 16px 24px;
+    margin-top: 40px;
+    margin-bottom: 18px;
+    font-family: PosterFont; 
+
+    &__year{
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      font-size: 0.7em;
+      font-weight: 100;
+    }
+  }
+
+  .year {
+    position: relative;
+    font-size: 5.4em;
+    line-height: normal;
+    padding-left: 24px;
   }
   
   .results-output {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 }
 
 @media screen and (max-width: 1020px) {
   :host {
     .main {
-      padding: 10px 20px;
+      padding: 0px 20px;
     }
-  
-    .results-output {
-      flex-direction: column-reverse;
-    }  
+
+    .header {
+      margin-top: 50px;
+    }
+
+    .shoppies-banner {
+      height: auto;
+      max-height: 100%;
+      max-width: 100%;
+    }
   }
 }

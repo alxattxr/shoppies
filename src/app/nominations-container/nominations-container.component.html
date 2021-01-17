@@ -1,9 +1,13 @@
-<span class="sub-header">Nominations {{nominees.length}}/{{this.searchMovieStoreService.nominationLimit}}</span>
-<div @list>
-  <ng-container *ngFor="let nominee of nominees">
-    <movie-card [movieInformation]="nominee" 
-    [primaryBtnActiveLabel]="'Remove nominee'"
-    (onClick)="removeFronNominations(nominee)">
-    </movie-card>
-  </ng-container>
-</div>
+<ng-container *ngIf="nominees.length > 0">
+  <span class="sub-header sub-header--nominations">Your Nominations {{nominees.length}}/{{this.searchMovieStoreService.nominationLimit}}</span>
+  <div class="nomination-list" @list>
+    <ng-container *ngFor="let nominee of nominees; let index = index">
+      <movie-card class="movie-card"
+      [movieInformation]="nominee" 
+      [primaryBtnActiveLabel]="'Remove nominee'"
+      [count]="index+1"
+      (onClick)="removeFronNominations(nominee)">
+      </movie-card>
+    </ng-container>
+  </div>
+</ng-container>

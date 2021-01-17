@@ -15,6 +15,7 @@ export class MovieCardComponent implements OnChanges {
   @Input() primaryBtnActiveLabel: string;
   @Input() primaryBtnDisabledLabel: string;
   @Input() activeLimit: number;
+  @Input() count: number;
 
   @Output() onClick = new EventEmitter<MouseEvent>();
 
@@ -47,7 +48,7 @@ export class MovieCardComponent implements OnChanges {
   }
 
   public getDisabledLabel(): string {
-    return this.isLimitReached() ? "Nomination limit reached" : this.primaryBtnDisabledLabel;
+    return this.isLimitReached() ? "Limit Reached" : this.primaryBtnDisabledLabel;
   }
 
 }

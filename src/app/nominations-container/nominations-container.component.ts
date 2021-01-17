@@ -25,4 +25,8 @@ export class NominationsContainerComponent extends ListComponent {
     this.searchMovieStoreService.removeElementFromNominations(nominee);
   }
 
+  public emptyNominationsCount(): number {
+    return 5 - this.nominees.length;
+  }
+
 }
