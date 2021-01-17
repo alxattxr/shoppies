@@ -1,7 +1,7 @@
 # The Shoppies web app
 
-This is my take on the Winter 2021 Shopify Web Development Internship Challenge.<br>
-For this challenge I decided to use Angular 10 (latest verison) and Scss for styling.<br>
+This is my take on the Summer 2021 Shopify Web Development Internship Challenge.<br>
+For this challenge I decided to use Angular 11 (latest verison) and Scss for styling.<br>
 I tried to deliver a reliable and performant application.<br>
 Hope you enjoy!😄
 
