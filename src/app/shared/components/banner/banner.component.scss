@@ -4,6 +4,10 @@
     width: 100%;
     margin-bottom: 8px;
     display: block;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    left: 0;
 
     .banner {
         padding: 8px;
@@ -15,25 +19,22 @@
 
     .alert {
         border: solid 1px $alert;
-        border-radius: 4px;
         background-color: $alert-light;
     }
 
     .success {
         border: solid 1px $success;
-        border-radius: 4px;
         background-color: $success-light;
+        color: $white;
     }
 
     .warning {
         border: solid 1px $warning;
-        border-radius: 4px;
         background-color: $warning-light;
     }
 
     .info {
         border: solid 1px $info;
-        border-radius: 4px;
         background-color: $info-light;
     }
 

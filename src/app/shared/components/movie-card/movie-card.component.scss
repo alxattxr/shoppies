@@ -24,7 +24,7 @@
 
         &__body {
             width: 164px;
-            background-color: #e7e7e7;
+            background-color: $light-grey;
             min-width: 0;
             height: 232px;
             padding: 8px;
@@ -67,7 +67,7 @@
             text-shadow: 4px 2px $pink;
             -webkit-text-fill-color: transparent;
             -webkit-text-stroke-width: 2px;
-            -webkit-text-stroke-color: grey;
+            -webkit-text-stroke-color: $dark-grey;
         }
     }
 
@@ -96,7 +96,7 @@
     }
 
     img {
-        border: solid 8px white;
+        border: solid 8px $white;
         height: 155px;
         width: 105px;
         object-fit: cover;
