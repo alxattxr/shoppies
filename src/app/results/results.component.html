@@ -1,31 +1,27 @@
 <ng-container *ngIf="!isLoading; else loading">
   <ng-container *ngIf="searchedString; else landingPage">
-    <span class="sub-header">Results for "{{ searchedString }}"</span>
+    <span class="sub-header sub-header--results">Results for "{{ searchedString }}"</span>
     <div @list class="search-results" *ngIf="!searchResults.Error; else noResults">
       <ng-container *ngFor="let result of searchResults.Search">
-        <movie-card [nominations]="searchMovieStoreService.nominations$ | async" [movieInformation]="result"
+        <movie-card class="movie-card"
+          [nominations]="searchMovieStoreService.nominations$ | async" [movieInformation]="result"
           [primaryBtnActiveLabel]="'Nominate'" [primaryBtnDisabledLabel]="'Nominated'"
           [activeLimit]="this.searchMovieStoreService.nominationLimit" (onClick)="addToNomination(result)">
         </movie-card>
       </ng-container>
     </div>
     <ng-template #noResults>
-      <div class="empty-search">
-        <mat-icon class="empty-search__icon">
-          search
-        </mat-icon>
-        <span class="empty-search__label">Hmm looks like your search was unconclusive</span>
-        <span class="empty-search__label">Try to be a bit more precise</span>
+      <div class="empty-search empty-search--unconclusive">
+        <span class="empty-search__icon">:/</span>
+        <span>Hmm looks like your search was unconclusive</span>
+        <span>Try to be a bit more precise</span>
       </div>
     </ng-template>
   </ng-container>
   <ng-template #landingPage>
-    <div class="empty-search">
-      <mat-icon class="empty-search__icon">
-        how_to_vote
-      </mat-icon>
-      <span class="empty-search__label"> Welcome to the shoppies application! </span>
-      <span class="empty-search__label"> Simply search for your movie titles and vote your favorites!</span>
+    <div class="empty-search empty-search--placeholder">
+      <span class="empty-search__label"> Search for the movie would like to nominate here </span>
+      <img class="empty-search__arrow" src="/assets/arrow.svg">
     </div>
   </ng-template>
 </ng-container>
