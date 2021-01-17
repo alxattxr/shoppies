@@ -1,15 +1,17 @@
 <div @items class="card">
     <div class="card__body">
-        <ng-container *ngIf="count">
-            <span class="card__position">{{count}}.</span>
-        </ng-container>
-        <ng-container
-            *ngIf="movieInformation.Poster && movieInformation.Poster.toLocaleUpperCase() !== 'N/A'; else brokenImg">
-            <img [src]="movieInformation.Poster" alt="Movie poster">
-        </ng-container>
-        <ng-template #brokenImg>
-            <img src="/assets/broken-image.png" alt="No poster found">
-        </ng-template>
+        <div class="card__top-half">
+            <ng-container
+                *ngIf="movieInformation.Poster && movieInformation.Poster.toLocaleUpperCase() !== 'N/A'; else brokenImg">
+                <img [src]="movieInformation.Poster" alt="Movie poster">
+            </ng-container>
+            <ng-template #brokenImg>
+                <img src="/assets/broken-image.png" alt="No poster found">
+            </ng-template>
+            <ng-container *ngIf="count">
+                <span class="card__position">{{count}}.</span>
+            </ng-container>
+        </div>
         <div class="card__desc">
             <span class="card__title">{{movieInformation.Title}}</span>
             <span class="movie-year">{{movieInformation.Year}}</span>

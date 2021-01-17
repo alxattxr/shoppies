@@ -1,3 +1,4 @@
+@import "./../../../color-variables";
 @font-face {
     font-family: PosterFont;
     src: url(./../../../../assets/BebasNeue-Regular.ttf);
@@ -16,6 +17,10 @@
     .card {
         display: flex;
         flex-direction: column;
+
+        &__top-half {
+            display: flex;
+        }
 
         &__body {
             width: 164px;
@@ -44,6 +49,7 @@
             width: 100%;
             min-width: 0;
             line-height: initial;
+            margin-top: 4px;
         }
 
         &__broken-img {
@@ -55,10 +61,13 @@
         }
 
         &__position {
-            position: absolute;
+            position: relative;
             font-size: 3em;
-            font-weight: bolder;
-            transform: translate(-5px, -5px);
+            transform: translate(-120px, -5px);
+            text-shadow: 4px 2px $pink;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: grey;
         }
     }
 
@@ -89,6 +98,8 @@
     img {
         border: solid 8px white;
         height: 155px;
+        width: 105px;
+        object-fit: cover;
     }
 }
 
@@ -101,10 +112,6 @@
         button {
             margin-top: 4px;
             width: 100%;
-        }
-
-        img {
-            max-width: 35px;
         }
     }
 }
