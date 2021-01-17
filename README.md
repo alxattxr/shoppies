@@ -1,4 +1,5 @@
 # The Shoppies web app
+<img width="1680" alt="Screen Shot 2021-01-17 at 10 07 44 AM" src="https://user-images.githubusercontent.com/50662248/104848121-8512f580-58b1-11eb-987a-c37128463d4a.png">
 
 This is my take on the Summer 2021 Shopify Web Development Internship Challenge.<br>
 For this challenge I decided to use Angular 11 (latest verison) and Scss for styling.<br>
